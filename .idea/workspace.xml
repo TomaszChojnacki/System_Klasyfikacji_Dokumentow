@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e3dc3b3-e83f-4f3d-a0e3-f3c86bfb15bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Kod/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/ekstrakcja_cech.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/ekstrakcja_cech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/ewaluacja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/ewaluacja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/klasyfikacja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/klasyfikacja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/narzedzia.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/narzedzia.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/ocr_modul.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/ocr_modul.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/wstepne_przetwarzanie.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/wstepne_przetwarzanie.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
