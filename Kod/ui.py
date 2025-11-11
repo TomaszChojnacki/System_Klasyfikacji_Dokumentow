@@ -43,10 +43,10 @@ class AplikacjaOCR(tk.Tk):
         # Przyciski startowe
         self._ustaw_stan_poczatkowy()
 
-        # katalog wyniki istnieje ?
+        # czy katalog wyniki istnieje
         F_WYNIKI.mkdir(parents=True, exist_ok=True)
 
-    # ---------- Layout ----------
+    # Layout
     def _zbuduj_menu(self):
         menubar = tk.Menu(self)
         plik_menu = tk.Menu(menubar, tearoff=0)
@@ -99,7 +99,7 @@ class AplikacjaOCR(tk.Tk):
         kontener = ttk.Frame(self)
         kontener.pack(fill="both", expand=True, padx=10, pady=4)
 
-        # Lewa kolumna: wybór i podgląd obrazu
+        # Lewa wybór podgląd obrazu
         lewa = ttk.LabelFrame(kontener, text="Obraz do rozpoznania")
         lewa.pack(side="left", fill="both", expand=True, padx=(0,6))
 
@@ -109,7 +109,7 @@ class AplikacjaOCR(tk.Tk):
         self.lbl_podglad = ttk.Label(lewa)
         self.lbl_podglad.pack(fill="both", expand=True, padx=8, pady=(0,8))
 
-        # Prawa kolumna: działania i wynik identyfikacji
+        # Prawa działanie wynik identyfikacji
         prawa = ttk.LabelFrame(kontener, text="Identyfikacja")
         prawa.pack(side="left", fill="both", expand=True, padx=(6,0))
 
@@ -135,7 +135,7 @@ class AplikacjaOCR(tk.Tk):
         self.btn_wyczysc_log = ttk.Button(ramka, text="Wyczyść log", command=lambda: self.txt_log.delete("1.0", "end"))
         self.btn_wyczysc_log.pack(anchor="e", padx=8, pady=(0,6))
 
-    # ---------- Stany przycisków ----------
+    # Stany przyciskow
     def _ustaw_stan_poczatkowy(self):
         self._ustaw_status("Status: gotowy")
         self._ustaw_trwa_uczenie(False)
@@ -170,7 +170,7 @@ class AplikacjaOCR(tk.Tk):
         self.txt_log.insert("end", msg + "\n")
         self.txt_log.see("end")
 
-    # ---------- Akcje ----------
+    # akcje
     def _akcja_uczenie(self):
         # Walidacja katalogów
         if not F_TRAIN.exists() or not F_TEST.exists():
@@ -278,12 +278,11 @@ class AplikacjaOCR(tk.Tk):
             messagebox.showerror("Błąd", f"Nie udało się rozpoznać obrazu:\n{e}")
             self._log(f"[BŁĄD] {e}")
 
-    # ---------- Pomocnicze ----------
     def _wczytaj_podglad(self, sciezka: Path, max_w=440, max_h=360):
         img = Image.open(sciezka).convert("RGB")
         # dopasowanie z zachowaniem proporcji
         img.thumbnail((max_w, max_h))
-        self._photo = ImageTk.PhotoImage(img)  # zachowaj referencję!
+        self._photo = ImageTk.PhotoImage(img)
         self.lbl_podglad.config(image=self._photo)
 
 if __name__ == "__main__":

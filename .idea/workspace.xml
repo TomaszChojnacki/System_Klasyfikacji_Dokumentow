@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e3dc3b3-e83f-4f3d-a0e3-f3c86bfb15bb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/System_Klasyfikacji_Dokumentow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/System_Klasyfikacji_Dokumentow.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kod/ekstrakcja_cech.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/ekstrakcja_cech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kod/klasyfikacja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/klasyfikacja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kod/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wyniki/macierz_pomylek.png" beforeDir="false" afterPath="$PROJECT_DIR$/wyniki/macierz_pomylek.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,18 +38,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "Python.testuj_pojedynczy_obraz.executor": "Run",
-    "Python.ui.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Tomasz Chojnacki/Documents/Dokumenty/studia/Studia Semestr 7/Systemy rozpoznawania mowy i obrazu/System_Klasyfikacji_Dokumentow",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testuj_pojedynczy_obraz.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ui.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tomasz Chojnacki/Documents/Dokumenty/studia/Studia Semestr 7/Systemy rozpoznawania mowy i obrazu/System_Klasyfikacji_Dokumentow&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.ui">
     <configuration name="testuj_pojedynczy_obraz" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="System_Klasyfikacji_Dokumentow" />
