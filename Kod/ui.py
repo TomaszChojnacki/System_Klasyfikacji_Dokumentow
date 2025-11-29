@@ -3,6 +3,9 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 from PIL import Image, ImageTk
+from ocr import ocr_tekst_z_obrazu
+import tempfile
+import traceback
 
 # moduly
 from klasyfikacja import (
@@ -19,6 +22,8 @@ F_DANE = PROJEKT / "dane"
 F_TRAIN = F_DANE / "trening"
 F_TEST = F_DANE / "test"
 F_WYNIKI = PROJEKT / "wyniki"
+F_ODCZYTANE = PROJEKT / "odczytane"
+
 
 class AplikacjaOCR(tk.Tk):
     def __init__(self):
@@ -45,6 +50,8 @@ class AplikacjaOCR(tk.Tk):
 
         # czy katalog wyniki istnieje
         F_WYNIKI.mkdir(parents=True, exist_ok=True)
+        # nowy katalog do zapisu OCR
+        F_ODCZYTANE.mkdir(parents=True, exist_ok=True)
 
     # Layout
     def _zbuduj_menu(self):
@@ -269,11 +276,76 @@ class AplikacjaOCR(tk.Tk):
         if not (self.model and self.slownik and self.obraz_testowy_path):
             messagebox.showwarning("Uwaga", "Brak modelu lub obrazu.")
             return
+
         try:
             etyk_num = przewidz_etykiete(self.model, self.slownik, self.obraz_testowy_path)
             nazwa = self.id2nazwa[int(etyk_num)] if self.id2nazwa else str(etyk_num)
+
             self.lbl_wynik.config(text=f"Rozpoznano jako: {nazwa.upper()}")
             self._ustaw_status(f"Wynik: {nazwa}")
+
+            # ---------------------------------------------
+            #    O C R   J E Ś L I   T O   D O W Ó D
+            # ---------------------------------------------
+            if nazwa.lower() == "dowody":
+                self._ustaw_status("Wykryto dowód osobisty — uruchamianie OCR...")
+                tekst = ocr_tekst_z_obrazu(self.obraz_testowy_path)
+
+                if not tekst.strip():
+                    messagebox.showinfo("OCR", "Nie udało się wyodrębnić tekstu z obrazu.")
+                    return
+
+                # zapytanie o sposób wyświetlenia
+                decyzja = messagebox.askyesno(
+                    "OCR",
+                    "Tekst został odczytany.\n\nCzy chcesz zapisać go do pliku TXT?"
+                )
+
+                if decyzja:
+                    # -------------------------------
+                    # 1) Próba zapisu do folderu "odczytane" w projekcie
+                    # -------------------------------
+                    try:
+                        F_ODCZYTANE.mkdir(parents=True, exist_ok=True)
+
+                        filename = f"odczytany_tekst_{self.obraz_testowy_path.stem}.txt"
+                        out = F_ODCZYTANE / filename
+                        out.write_text(tekst, encoding="utf-8")
+
+                        self._ustaw_status(f"Zapisano tekst OCR → {out}")
+                        messagebox.showinfo("OCR", f"Zapisano do pliku:\n{out}")
+
+                    except PermissionError:
+                        # -------------------------------
+                        # 2) Fallback — zapis do Dokumentów użytkownika
+                        # -------------------------------
+                        fallback_dir = Path.home() / "Documents" / "odczytane"
+                        try:
+                            fallback_dir.mkdir(parents=True, exist_ok=True)
+                            out2 = fallback_dir / filename
+                            out2.write_text(tekst, encoding="utf-8")
+
+                            self._ustaw_status(
+                                f"Brak dostępu do folderu projektu. "
+                                f"Zapisano w Dokumentach → {out2}"
+                            )
+                            messagebox.showinfo("OCR", f"Zapisano do pliku:\n{out2}")
+
+                        except Exception as e2:
+                            # -------------------------------
+                            # 3) Nie udało się zapisać nigdzie
+                            # -------------------------------
+                            messagebox.showerror(
+                                "OCR - błąd zapisu",
+                                f"Nie udało się zapisać pliku OCR:\n{e2}"
+                            )
+                            self._log(f"[BŁĄD ZAPISU OCR] {e2}")
+
+                else:
+                    # wyświetlenie tekstu w logu
+                    self._ustaw_status("Wyświetlam odczytany tekst w panelu log…")
+                    self._log("\n===== TEKST OCR =====\n" + tekst + "\n=====================\n")
+
         except Exception as e:
             messagebox.showerror("Błąd", f"Nie udało się rozpoznać obrazu:\n{e}")
             self._log(f"[BŁĄD] {e}")
