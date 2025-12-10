@@ -84,7 +84,7 @@ class AplikacjaOCR(tk.Tk):
         self.btn_ucz.grid(row=0, column=0, padx=6, pady=6, sticky="w")
 
         ttk.Label(ramka, text="k (słownik BoVW):").grid(row=0, column=1, padx=(18,4), sticky="e")
-        self.var_k = tk.IntVar(value=300)
+        self.var_k = tk.IntVar(value=200)
         self.ent_k = ttk.Entry(ramka, width=6, textvariable=self.var_k)
         self.ent_k.grid(row=0, column=2, padx=4)
 
