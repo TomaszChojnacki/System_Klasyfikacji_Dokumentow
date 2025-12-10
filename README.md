@@ -30,7 +30,7 @@ Po zainstalowaniu bibliotek oraz zmiany sciezki dla biblioteki tesseract urucham
 -----
 
 ## VI. Struktura katalogow
-
+```text
 SYSTEM KLASYFIKACJI DOKUMENTOW
     - dane
         - test
