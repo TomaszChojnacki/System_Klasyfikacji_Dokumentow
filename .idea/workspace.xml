@@ -6,26 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7e3dc3b3-e83f-4f3d-a0e3-f3c86bfb15bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kod/ocr.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/ocr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet0-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet0-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet0-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet0-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet1-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet1-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet1-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet1-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet1-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/test/bilety/bilet1-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/trening/bilety/bilet0-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/trening/bilety/bilet0-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/trening/bilety/bilet0-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/trening/bilety/bilet1-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odczytane/odczytany_tekst_bilet2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wyniki/macierz_pomylek.png" beforeDir="false" afterPath="$PROJECT_DIR$/wyniki/macierz_pomylek.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wyniki/mapa_id2nazwa.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/wyniki/mapa_id2nazwa.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wyniki/model_svm.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/wyniki/model_svm.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wyniki/slownik_kmeans.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/wyniki/slownik_kmeans.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kod/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

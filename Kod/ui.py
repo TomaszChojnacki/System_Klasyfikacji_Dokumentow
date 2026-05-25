@@ -312,7 +312,7 @@ class AplikacjaOCR(tk.Tk):
                         out = F_ODCZYTANE / filename
                         out.write_text(tekst, encoding="utf-8")
 
-                        self._ustaw_status(f"Zapisano tekst OCR → {out}")
+                        self._ustaw_status(f"Zapisano tekst OCR : {out}")
                         messagebox.showinfo("OCR", f"Zapisano do pliku:\n{out}")
 
                     except PermissionError:
@@ -325,7 +325,7 @@ class AplikacjaOCR(tk.Tk):
 
                             self._ustaw_status(
                                 f"Brak dostępu do folderu projektu. "
-                                f"Zapisano w Dokumentach → {out2}"
+                                f"Zapisano w Dokumentach : {out2}"
                             )
                             messagebox.showinfo("OCR", f"Zapisano do pliku:\n{out2}")
 
