@@ -31,7 +31,7 @@ def ocr_tekst_z_biletu(sciezka: Path) -> str:
 
         config = (
             "--oem 3 " # domyślny silnik
-            "--psm 6 "
+            "--psm 11 "
         )
 
         tekst = pytesseract.image_to_string(obrocony, lang="pol", config=config).strip()
