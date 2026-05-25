@@ -3,7 +3,7 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 from PIL import Image, ImageTk
-from ocr import ocr_tekst_z_obrazu
+from ocr import ocr_tekst_z_obrazu, ocr_tekst_z_biletu
 import tempfile
 import traceback
 
@@ -284,12 +284,14 @@ class AplikacjaOCR(tk.Tk):
             self.lbl_wynik.config(text=f"Rozpoznano jako: {nazwa.upper()}")
             self._ustaw_status(f"Wynik: {nazwa}")
 
-            # ---------------------------------------------
-            #    O C R   J E Ś L I   T O   D O W Ó D
-            # ---------------------------------------------
-            if nazwa.lower() == "dowody":
-                self._ustaw_status("Wykryto dowód osobisty — uruchamianie OCR...")
-                tekst = ocr_tekst_z_obrazu(self.obraz_testowy_path)
+            #ocr jeśli to dowód
+            if nazwa.lower() in ["dowody", "bilety"]:
+                self._ustaw_status(f"Wykryto dokument typu: {nazwa} — uruchamianie OCR...")
+
+                if nazwa.lower() == "bilety":
+                    tekst = ocr_tekst_z_biletu(self.obraz_testowy_path)
+                else:
+                    tekst = ocr_tekst_z_obrazu(self.obraz_testowy_path)
 
                 if not tekst.strip():
                     messagebox.showinfo("OCR", "Nie udało się wyodrębnić tekstu z obrazu.")
@@ -302,9 +304,7 @@ class AplikacjaOCR(tk.Tk):
                 )
 
                 if decyzja:
-                    # -------------------------------
                     # 1) Próba zapisu do folderu "odczytane" w projekcie
-                    # -------------------------------
                     try:
                         F_ODCZYTANE.mkdir(parents=True, exist_ok=True)
 
@@ -316,9 +316,7 @@ class AplikacjaOCR(tk.Tk):
                         messagebox.showinfo("OCR", f"Zapisano do pliku:\n{out}")
 
                     except PermissionError:
-                        # -------------------------------
-                        # 2) Fallback — zapis do Dokumentów użytkownika
-                        # -------------------------------
+                        # 2) zapis do Dokumentów użytkownika
                         fallback_dir = Path.home() / "Documents" / "odczytane"
                         try:
                             fallback_dir.mkdir(parents=True, exist_ok=True)
@@ -332,9 +330,7 @@ class AplikacjaOCR(tk.Tk):
                             messagebox.showinfo("OCR", f"Zapisano do pliku:\n{out2}")
 
                         except Exception as e2:
-                            # -------------------------------
                             # 3) Nie udało się zapisać nigdzie
-                            # -------------------------------
                             messagebox.showerror(
                                 "OCR - błąd zapisu",
                                 f"Nie udało się zapisać pliku OCR:\n{e2}"
